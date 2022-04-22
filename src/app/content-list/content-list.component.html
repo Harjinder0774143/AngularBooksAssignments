@@ -1,3 +1,28 @@
-<h3 class="text-center">List Of Books</h3>
+<!-- <h3 class="text-center">List Of Books</h3>
 <app-content-card *ngFor="let item of bookList; first as isFirstBookOnList" 
-[class.first-book]="isFirstBookOnList" [book]="item"></app-content-card>
+[class.first-book]="isFirstBookOnList" [book]="item"></app-content-card> -->
+
+<div class="search" style="margin-top: 10px;">
+    <span style="display:flex;">
+    <input type="text" class="form-control" #search style="width:50%"> &nbsp;
+    <button class="btn btn-primary" (click)="findTitle(search.value)">Find BookTitle</button>
+    </span>
+    <h4 class="success" *ngIf="findFlag">Book Title found</h4>
+    <h4 class="fail" *ngIf="!findFlag">Book Title not found</h4>
+  <!--  <div [class.success]="searchFlag" [class.fail]="!searchFlag"> {{ searchMessage }} </div>-->
+  </div>
+   <h3 class="text-center">List Of Books</h3>
+  <app-content-card *ngFor="let item of (bookList | contentTypeFilter); first as isFirstBookOnList" [class.first-book]="isFirstBookOnList"
+      [book]="item" class="notype" [class.found]="item.title == search.value"></app-content-card>
+  
+  <app-content-card *ngFor="let item of (bookList | contentTypeFilter: 'PositiveThinking'); first as isFirstBookOnList" [class.first-book]="isFirstBookOnList"
+                    [book]="item" class="PositiveThinking" [class.found]="item.title == search.value"></app-content-card>
+  
+  <app-content-card *ngFor="let item of (bookList | contentTypeFilter: 'Mindset'); first as isFirstBookOnList" [class.first-book]="isFirstBookOnList"
+                    [book]="item" class="Mindset" [class.found]="item.title == search.value"></app-content-card>
+  
+  <app-content-card *ngFor="let item of (bookList | contentTypeFilter: 'Biography'); first as isFirstBookOnList" [class.first-book]="isFirstBookOnList"
+                    [book]="item" class="Biography" [class.found]="item.title == search.value"></app-content-card>
+ 
+  <app-content-card *ngFor="let item of (bookList | contentTypeFilter: 'Reality'); first as isFirstBookOnList" [class.first-book]="isFirstBookOnList"
+                    [book]="item" class="Reality" [class.found]="item.title == search.value"></app-content-card>

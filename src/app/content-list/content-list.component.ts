@@ -8,6 +8,8 @@ import { Book} from '../helper-files/book.interface';
 })
 export class ContentListComponent implements OnInit {
 
+  findMessage: string = "";
+  findFlag: boolean = false;
   bookList!: Book[];
 
   constructor() {
@@ -19,6 +21,7 @@ export class ContentListComponent implements OnInit {
         imgURL:  'https://images-na.ssl-images-amazon.com/images/I/81GyfzThWZL.jpg',
         writer: "Winn Collier",
         genre: ["Biography", "Reality"],
+        type:'Reality',
         price: "$16.99",
     }, {
       id: 1,
@@ -27,6 +30,7 @@ export class ContentListComponent implements OnInit {
       imgURL:  'https://images-na.ssl-images-amazon.com/images/I/81VStYnDGrL.jpg',
       writer: "Walter Isaacson",
       genre: ["Biography", "Reality"],
+      type: 'Biography',
       price: "$24.99",
     }, {
       id: 2,
@@ -35,6 +39,7 @@ export class ContentListComponent implements OnInit {
       imgURL:  'https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L.jpg',
       writer: "Mark Manson",
       genre: ["Mindset", "Positive Thinking"],
+      type:'Mindset',
       price: "$19.99",
     }, {
       id:3,
@@ -43,6 +48,7 @@ export class ContentListComponent implements OnInit {
       imgURL:  'https://upload.wikimedia.org/wikipedia/en/3/34/The_Monk_Who_Sold_His_Ferrari.jpg',
       writer: "Robin Sharma",
       genre: ["Mindset", "Positive Thinking"],
+      type: "PositiveThinking",
       price: "$19.99",
     }, {
 
@@ -52,9 +58,10 @@ export class ContentListComponent implements OnInit {
       imgURL:  'https://m.media-amazon.com/images/I/4108V6JJ+jL.jpg',
       writer: "Eckhart Tolle",
       genre: ["Mindset", "Positive Thinking"],
+
     }, {
       id:5,
-      title: "TThe Last Wish: Introducing the Witcher",
+      title: "The Last Wish: Introducing the Witcher",
       description:'Geralt is a witcher, a man whose magic powers, enhanced by long training and a mysterious elixir, have made him a brilliant fighter and a merciless assassin. Yet he is no ordinary murderer: his targets are the multifarious monsters and vile fiends that ravage the land and attack the innocent. He roams the country seeking assignments, but gradually comes to realise that while some of his quarry are unremittingly vile, vicious grotesques, others are the victims of sin, evil or simple naivety.',
       imgURL:  'https://m.media-amazon.com/images/I/51H9T3jvcZL.jpg',
       writer: "Andrzej Sapkowski",
@@ -65,5 +72,19 @@ export class ContentListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+  findTitle(searchValue: string): void{
+    let searchList = this.bookList.filter(c => c.title == searchValue);
+    if (searchList.length > 0){
+      this.findMessage  = "Found the book!";
+      this.findFlag = true;
+    }
+    else{
+      this.findMessage  = "No book found with that title";
+      this.findFlag = false;
+    }
+  }
+  
 
 }

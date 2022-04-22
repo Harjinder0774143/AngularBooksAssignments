@@ -5,6 +5,7 @@ export interface Book{
     imgURL:  string,
     writer: string,
     genre?: string[],
-    tags?:string
+    tags?:string,
+    type?: string;
     price?: string,
   }

@@ -13,12 +13,23 @@
                 {{ book?.description }}
             </p>
             <div class="meta-data">
-                <div class="writer">
-                   <b>Writer</b> {{ book?.writer}}
-                </div>
-                <div *ngIf="book?.price" class="book?.price">
-                    {{ book?.price }}
-                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">                        
+                        <div class="writer">
+                        <b>Writer: </b> {{ book?.writer}}
+                        </div>
+                    </li>
+                    <li class="list-group-item"> 
+                        <div *ngIf="book?.price" class="book?.price">
+                            <b>Price: </b>  {{ book?.price }}
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div *ngIf="book?.type" class="book?.type">
+                            <b>Type: </b>{{ book?.type }}
+                        </div>
+                    </li>
+                </ul>
                 <div class="genre" *ngIf="book?.genre">
                     <button class="btn btn-primary ml-1" *ngFor="let data of book?.genre">
                         #{{ data }}

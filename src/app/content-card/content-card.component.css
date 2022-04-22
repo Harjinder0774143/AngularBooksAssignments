@@ -9,6 +9,26 @@
 :host.first-book{
     border: 2px solid #000;
 }
+:host.notype{
+    background-color: pink;
+  }
+:host.PositiveThinking{
+    background-color: blue;
+  }
+:host.Mindset{
+    background-color: green;
+  }
+:host.Biography{
+    background-color: red;
+  }
+:host.Reality{
+    border-color: orange;
+    border-width: 3px;
+  }
+  :host.found {
+    border-color: green;
+    border-width: 5px;
+  }
 .image{
     width: 300px;
 }
