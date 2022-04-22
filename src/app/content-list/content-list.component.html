@@ -2,16 +2,26 @@
 <app-content-card *ngFor="let item of bookList; first as isFirstBookOnList" 
 [class.first-book]="isFirstBookOnList" [book]="item"></app-content-card> -->
 
-<div class="search" style="margin-top: 10px;">
-    <span style="display:flex;">
-    <input type="text" class="form-control" #search style="width:50%"> &nbsp;
-    <button class="btn btn-primary" (click)="findTitle(search.value)">Find BookTitle</button>
-    </span>
-    <h4 class="success" *ngIf="findFlag">Book Title found</h4>
-    <h4 class="fail" *ngIf="!findFlag">Book Title not found</h4>
-    <div [class.success]="findFlag" [class.fail]="!findFlag"> {{ findMessage }} </div>
-  </div>
 
+<app-create-content (newContentEvent)="addBookToParent($event)"></app-create-content>
+<hr/>
+<div style="margin-top: 10px;">
+  <h3 class="text-center">Search Book</h3>
+    <form class="searchForm">
+      <div class="form-group">
+      <input type="text" class="form-control" #search>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" (click)="findTitle(search.value)">Find BookTitle</button>
+      </div>
+    </form>
+    <div class="message">
+      <h4 class="success" *ngIf="findFlag">Book Title found</h4>
+      <h4 class="fail" *ngIf="!findFlag">Book Title not found</h4>
+      <div [class.success]="findFlag" [class.fail]="!findFlag"> {{ findMessage }} </div>
+    </div>
+  </div>
+<hr/>
 
    <h3 class="text-center">List Of Books</h3>
   <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstBookOnList || isLast"
@@ -28,3 +38,6 @@
  
   <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstBookOnList || isLast"
   *ngFor="let item of (bookList | contentTypeFilter: 'Reality'); first as isFirstBookOnList; last as isLast" [class.first-book]="isFirstBookOnList" [book]="item" class="Reality" [class.found]="item.title == search.value"></app-content-card>
+
+  <!-- <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstBookOnList || isLast"
+  *ngFor="let item of (bookList | contentTypeFilter: 'Drama'); first as isFirstBookOnList; last as isLast" [class.first-book]="isFirstBookOnList" [book]="item" class="Drama" [class.found]="item.title == search.value"></app-content-card> -->

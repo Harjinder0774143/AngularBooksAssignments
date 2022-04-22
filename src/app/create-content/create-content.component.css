@@ -1,0 +1,9 @@
+.error {
+    color: red;
+    font-weight: bold;
+  }
+
+.bookForm{
+  width:700px;
+  margin: auto;
+}

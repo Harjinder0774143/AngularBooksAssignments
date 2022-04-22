@@ -67,6 +67,16 @@ export class ContentListComponent implements OnInit {
       imgURL:  'https://m.media-amazon.com/images/I/51H9T3jvcZL.jpg',
       writer: "Andrzej Sapkowski",
       price: "$69.09",
+    },
+    {
+      description: "The Two Towers: The Lord of the Rings",
+      genre: ['Fantasy,Drama'],
+      id: 6,
+      imgURL: "",
+      price: "$34.99",
+      title: "The Two Towers: The Lord of the Rings",
+      type: "Drama",
+      writer: "J. R. R. Tolkien"
     }
   ];
    }
@@ -85,7 +95,14 @@ export class ContentListComponent implements OnInit {
       this.findMessage  = "No book found with that title";
       this.findFlag = false;
     }
+
+    
   }
-  
+  addBookToParent(bookFromChild: Book) {
+    console.log("go to the parent", bookFromChild);
+   this.bookList.push(bookFromChild);
+   console.log("the book list", this.bookList);
+   this.bookList = [...this.bookList]; //clone for the pipe
+  }
 
 }

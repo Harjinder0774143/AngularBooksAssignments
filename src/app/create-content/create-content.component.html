@@ -1,0 +1,45 @@
+<div class="container">
+    <h3 class="text-center">Add Book Form</h3>
+    <form class="bookForm">
+        <div class="form-group">
+            <label for="id">ID:</label>
+             <input type="text" class="form-control" name="tempId" [(ngModel)]="tempId">
+        </div>
+        <div class="form-group">
+            <label for="id">Title</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="newBook.title">
+        </div>
+        
+        <div class="form-group">
+            <label for="id">Image</label>
+            <input type="text" class="form-control" name="imgURL" [(ngModel)]="newBook.imgURL">
+        </div>
+        <div class="form-group">
+            <label for="id">Description</label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="newBook.description">
+        </div>
+        <div class="form-group">
+            <label for="id">Type</label>
+             <input type="text" class="form-control" name="type" [(ngModel)]="newBook.type">
+        </div>
+        <div class="form-group">
+            <label for="id">Writer</label>
+            <input type="text" class="form-control" name="writer" [(ngModel)]="newBook.writer">
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre</label>
+             <input  type="text" class="form-control" name="tempTags" [(ngModel)]="tempTags">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+             <input  type="text" class="form-control" name="price" [(ngModel)]="newBook.price">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary"(click)="addBookFromChild()">Add Book</button>
+        </div>
+        <div class="error" *ngIf="errorMessage">
+            {{ errorMessage }}
+        </div>
+        </form>
+</div>
+

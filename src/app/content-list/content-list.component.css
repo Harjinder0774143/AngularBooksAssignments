@@ -4,3 +4,16 @@
   .success{
     color: green;
   }
+
+.message{
+  display: block;
+    margin: 16px auto;
+    padding: 5px;
+    width: 900px;
+    text-align: center;
+}
+
+.searchForm{
+  width:700px;
+  margin: auto;
+}
