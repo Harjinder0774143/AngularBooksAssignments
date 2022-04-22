@@ -18,7 +18,8 @@ export class ContentListComponent implements OnInit {
         id: 0,
         title: "A Burning in My Bones",
         description: "This essential authorized biography of Eugene Peterson offers unique insights into the experiences and spiritual convictions of the iconic American pastor and beloved translator of The Message.",
-        imgURL:  'https://images-na.ssl-images-amazon.com/images/I/81GyfzThWZL.jpg',
+        imgURL:  '',
+        //imgURL:  'https://images-na.ssl-images-amazon.com/images/I/81GyfzThWZL.jpg',
         writer: "Winn Collier",
         genre: ["Biography", "Reality"],
         type:'Reality',
@@ -77,7 +78,7 @@ export class ContentListComponent implements OnInit {
   findTitle(searchValue: string): void{
     let searchList = this.bookList.filter(c => c.title == searchValue);
     if (searchList.length > 0){
-      this.findMessage  = "Found the book!";
+      this.findMessage  = "Found the Book!";
       this.findFlag = true;
     }
     else{
