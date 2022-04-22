@@ -1,0 +1,22 @@
+:host{
+    border: 1px solid #03036b;
+    display: block;
+    margin: 16px auto;
+    padding: 5px;
+    width: 900px;
+    text-align: center;
+}
+:host.first-book{
+    border: 2px solid #000;
+}
+.image{
+    width: 300px;
+}
+.genre{
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid #286bb8;
+    background-color:rgb(93, 99, 99);
+    margin: 8px;
+    padding: 8px;
+}
